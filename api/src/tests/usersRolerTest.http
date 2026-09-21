@@ -1,0 +1,42 @@
+@host = http://localhost
+@port = 3500
+@endpoint = usersroles
+
+@url = {{host}}:{{port}}/{{endpoint}} 
+
+###
+GET {{url}}
+
+###
+# getById
+GET {{url}}/1
+
+###
+# getByEmail
+GET {{url}}/email/provara022@fatec.com
+
+###
+# inclui novos registros
+POST  {{url}}
+Content-Type: application/json; charset=utf-8
+
+    {
+      "iduser": 1,
+      "idroler": 1     
+    }
+
+###
+
+PUT  {{url}}/2
+Content-Type: application/json; charset=utf-8
+
+{
+    "name": "teste.022",
+    "password": "022",
+    "password": "123-456"    
+}
+
+###
+DELETE  {{url}}/3
+Content-Type: application/json; charset=utf-8
+

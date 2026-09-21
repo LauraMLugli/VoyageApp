@@ -1,0 +1,37 @@
+@host = http://localhost
+@port = 3600
+@endpoint = municipios
+
+@url = {{host}}:{{port}}/{{endpoint}} 
+
+###
+GET {{url}}
+
+###
+# getById
+GET {{url}}/1
+
+###
+# inclui novos registros
+POST  {{url}}
+Content-Type: application/json; charset=utf-8
+
+{
+  "municipio": "taquaritinga",
+   "UF": "SP",
+   "populacao": 60000
+}
+
+###
+
+PUT  {{url}}/1
+Content-Type: application/json; charset=utf-8
+
+{
+  "municipio": "Taquaritinga",
+   "uf": "SP",
+   "populacao": 60000
+}
+
+###
+DELETE  {{url}}/6

@@ -1,0 +1,41 @@
+@host = http://localhost
+@port = 3501
+@endpoint = clientes
+
+@url = {{host}}:{{port}}/{{endpoint}} 
+
+###
+GET {{url}}
+
+###
+# getById
+GET {{url}}/1
+
+###
+# inclui novos registros
+POST  {{url}}
+Content-Type: application/json; charset=utf-8
+
+{
+      "nome": "prova 022",
+      "celular": "16 99999-1114",
+      "email" : "provara022@fatec.com",
+      "avatar" : ""
+    }
+
+###
+
+PUT  {{url}}/2
+Content-Type: application/json; charset=utf-8
+
+{
+      "nome": "prova 022",
+      "celular": "16 99999-1114",
+      "email" : "provara022@fatec.com",
+      "avatar" : ""
+    }
+
+###
+DELETE  {{url}}/3
+Content-Type: application/json; charset=utf-8
+
