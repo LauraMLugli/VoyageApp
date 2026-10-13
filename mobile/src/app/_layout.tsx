@@ -1,14 +1,15 @@
+import AuthProvider from "@/lib/authContext";
+import { VoyageProvider } from "@/lib/voyageContext";
 import { Stack } from "expo-router";
-import AuthProvider from "./utils/authContext";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
   return (
     <AuthProvider>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <VoyageProvider>
+        <StatusBar style="dark" />
+        <Stack screenOptions={{ headerShown: false }} />
+      </VoyageProvider>
     </AuthProvider>
   );
 }
