@@ -1,35 +1,29 @@
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { Redirect, Tabs } from "expo-router";
+import { colors } from "@/lib/theme";
+import { AuthContext } from "@/lib/authContext";
+import { FleetProvider } from "@/lib/fleet";
+import { useVoyage } from "@/lib/voyageContext";
+import { Redirect, Stack } from "expo-router";
 import { useContext } from "react";
-import { AuthContext } from "../utils/authContext";
+import { ActivityIndicator, Image, View } from "react-native";
 
 export default function AuthLayout() {
   const auth = useContext(AuthContext);
+  const voyage = useVoyage();
 
-  if (auth.isReding) {
-    return;
+  if (auth.isReding || (auth.isLoggedIn && !voyage.ready)) {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center", gap: 18, backgroundColor: colors.background }}>
+        <Image source={require("@/assets/images/logoVoyage.jpeg")} style={{ width: 90, height: 90 }} resizeMode="contain" />
+        <ActivityIndicator color={colors.blue} />
+      </View>
+    );
   }
 
-  if (!auth.isLoggedIn) {
-    return <Redirect href={"/login"} />;
-  }
+  if (!auth.isLoggedIn) return <Redirect href="/login" />;
+
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "home",
-          tabBarIcon: () => (
-            <MaterialIcons name="home" size={24} color={"red"} />
-          ),
-        }}
-      />
-      <Tabs.Screen name="listaClientes" />
-      <Tabs.Screen name="perfil" />
-    </Tabs>
+    <FleetProvider>
+      <Stack screenOptions={{ headerShown: false }} />
+    </FleetProvider>
   );
 }
