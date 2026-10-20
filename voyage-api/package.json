@@ -1,0 +1,24 @@
+{
+  "name": "voyage-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "API e banco de dados (SQLite) do app Voyage",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test",
+    "reset-db": "node scripts/reset-db.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^12.2.0"
+  }
+}
