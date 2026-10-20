@@ -1,0 +1,23 @@
+@host = http://localhost
+@port = 3600
+@endpoint = upload
+
+@url = {{host}}:{{port}}/{{endpoint}} 
+
+
+###
+# inclui novos registros
+POST  {{url}}
+Content-Type: multipart/form-data; boundary=MinhaBoundary
+
+--MinhaBoundary
+Content-Disposition: form-data; name="title"
+
+Teste upload
+--MinhaBoundary
+Content-Disposition: form-data; name="avatar"; filename="1.png"
+Content-Type: image/png
+
+< ./1.png
+--MinhaBoundary--
+
