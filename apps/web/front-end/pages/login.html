@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/acessibilade.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Login ADM | Voyage</title>
+</head>
+
+<body>
+
+    <!-- =============================================================
+         HEADER PERSONALIZADO
+         ============================================================= -->
+    <header class="header-login">
+        <div class="header-brand">
+            <img src="../img/voyage_logo.svg"
+                 data-src-normal="../img/voyage_logo.svg"
+                 data-src-noturna="../img/voyage_logo_noturna.svg"
+                 alt="Logo Voyage"
+                 class="logo">
+            <span class="brand-name">Voyage</span>
+        </div>
+
+        <a href="/apps/web/index.html" class="btn-voltar">
+            <i class="bi bi-arrow-left"></i>
+            <span data-i18n="login_voltar">Voltar</span>
+        </a>
+
+        <nav class="header-nav">
+            <ul>
+                <li><a href="parceiros.html" data-i18n="nav_parceiros">Parceiros</a></li>
+                <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                <li><a href="regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                <li><a href="sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="app.html" class="btn-install-header" data-i18n="btn_instalar">
+                <i class="bi bi-download"></i> Instale o App
+            </a>
+
+            <button onclick="toggleDarkMode()" class="dark-mode-toggle" aria-label="Alternar modo noturno">
+                <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+            </button>
+
+            <div class="language-selector">
+                <button id="languageBtn" class="language-toggle" onclick="toggleLanguageMenu()">
+                    <i class="bi bi-globe"></i> <span id="languageLabel">PT</span>
+                </button>
+                <div id="languageMenu" class="language-menu">
+                    <button onclick="setLanguage('pt')">🇧🇷 Português</button>
+                    <button onclick="setLanguage('en')">🇺🇸 English</button>
+                    <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- =============================================================
+         FUNDO ANIMADO
+         ============================================================= -->
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- =============================================================
+         CONTAINER PRINCIPAL
+         ============================================================= -->
+    <div class="login-wrapper">
+
+        <!-- ===== PAINEL LATERAL ESQUERDO ===== -->
+        <aside class="side-panel">
+            <div class="side-panel-top">
+                <img src="../img/voyage_logo_noturna.svg" alt="Voyage" class="side-logo">
+                <span class="side-title">Voyage</span>
+            </div>
+
+            <div class="side-panel-middle">
+                <h2 data-i18n="login_painel_titulo">Bem-vindo à<br>Área ADM</h2>
+                <p data-i18n="login_painel_desc">Gerencie o sistema Voyage de forma simples, segura e centralizada. Este painel é exclusivo para a equipe administrativa.</p>
+            </div>
+
+            <div class="side-panel-bottom">
+                <div class="side-info">
+                    <i class="bi bi-shield-check"></i>
+                    <span data-i18n="login_painel_info1">Acesso seguro e criptografado</span>
+                </div>
+                <div class="side-info">
+                    <i class="bi bi-people-fill"></i>
+                    <span data-i18n="login_painel_info2">Equipe Voyage</span>
+                </div>
+                <div class="side-info">
+                    <i class="bi bi-clock-history"></i>
+                    <span data-i18n="login_painel_info3">Suporte 24/7</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ===== ÁREA RESERVADA PARA OS CARDS ===== -->
+        <div class="card-area">
+
+            <!-- ===== CARD DE LOGIN ===== -->
+            <div class="card card-login active" id="cardLogin">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi bi-shield-lock-fill"></i>
+                    </div>
+                    <h1 data-i18n="login_titulo">ÁREA ADM</h1>
+                    <p data-i18n="login_subtitulo">Acesso restrito à equipe administrativa</p>
+                </div>
+
+                <form id="loginForm" class="card-form">
+                    <div class="form-group">
+                        <i class="bi bi-envelope-fill"></i>
+                        <input type="email" id="loginEmail"
+                               data-i18n-placeholder="login_email_placeholder"
+                               placeholder="Digite seu e-mail" required>
+                    </div>
+
+<div class="form-group">
+    <i class="bi bi-lock-fill"></i>
+    <input type="password" id="loginPassword" class="has-toggle"
+           data-i18n-placeholder="login_senha_placeholder"
+           placeholder="Digite sua senha" required>
+    <button type="button" class="btn-toggle-password" data-target="loginPassword" aria-label="Mostrar senha">
+        <i class="bi bi-eye"></i>
+    </button>
+</div>
+
+                    <div class="form-options">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            <span data-i18n="login_lembrar">Lembrar de mim</span>
+                        </label>
+                        <a href="#" id="forgotPassword" data-i18n="login_esqueceu">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary" data-i18n="login_btn_entrar">
+                        <i class="bi bi-box-arrow-in-right"></i> ENTRAR
+                    </button>
+
+                    <p class="switch-text">
+                        <span data-i18n="login_sem_conta">Não tem conta ADM?</span>
+                        <a href="#" id="goToRegister" data-i18n="login_registrar_link">Clique aqui para registrar-se</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- ===== CARD DE REGISTRO ===== -->
+            <div class="card card-register" id="cardRegister">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi bi-person-plus-fill"></i>
+                    </div>
+                    <h1 data-i18n="login_registro_titulo">NOVO ADM</h1>
+                    <p data-i18n="login_registro_subtitulo">Crie sua conta administrativa</p>
+                </div>
+
+                <form id="registerForm" class="card-form">
+                    <div class="form-group">
+                        <i class="bi bi-person-fill"></i>
+                        <input type="text" id="regNome"
+                               data-i18n-placeholder="login_reg_nome"
+                               placeholder="Digite seu nome completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <i class="bi bi-envelope-fill"></i>
+                        <input type="email" id="regEmail"
+                               data-i18n-placeholder="login_reg_email"
+                               placeholder="Digite seu e-mail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <i class="bi bi-key-fill"></i>
+                        <input type="text" id="regCodigo"
+                               data-i18n-placeholder="login_reg_codigo"
+                               placeholder="Código de acesso ADM" required>
+                    </div>
+
+<div class="form-group">
+    <i class="bi bi-lock-fill"></i>
+    <input type="password" id="regSenha" class="has-toggle"
+           data-i18n-placeholder="login_reg_senha"
+           placeholder="Digite sua senha" required>
+    <button type="button" class="btn-toggle-password" data-target="regSenha" aria-label="Mostrar senha">
+        <i class="bi bi-eye"></i>
+    </button>
+</div>
+
+<div class="form-group">
+    <i class="bi bi-lock-fill"></i>
+    <input type="password" id="regConfirmaSenha" class="has-toggle"
+           data-i18n-placeholder="login_reg_confirma"
+           placeholder="Confirme sua senha" required>
+    <button type="button" class="btn-toggle-password" data-target="regConfirmaSenha" aria-label="Mostrar senha">
+        <i class="bi bi-eye"></i>
+    </button>
+</div>
+
+                    <div class="form-options">
+                        <label>
+                            <input type="checkbox" id="aceitoTermos" required>
+                            <span data-i18n="login_reg_termos">Aceito os termos</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary" data-i18n="login_btn_registrar">
+                        <i class="bi bi-check-circle-fill"></i> REGISTRAR
+                    </button>
+
+                    <p class="switch-text">
+                        <span data-i18n="login_ja_conta">Já tem conta?</span>
+                        <a href="#" id="goToLogin" data-i18n="login_fazer_login_link">Clique aqui para fazer login</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- =============================================================
+         TOASTS
+         ============================================================= -->
+    <div id="toast" class="toast"></div>
+    <div id="languageToast" class="language-toast"></div>
+    <div id="accessibilityToast" class="accessibility-toast"></div>
+
+    <!-- =============================================================
+         FILTROS DE DALTONISMO (SVG)
+         ============================================================= -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0
+                                                     0.558 0.442 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="deuteranopia-filter">
+                <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                                     0.7 0.3 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                     0 1 0 0 0
+                                                     0 0 0.567 0.433 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="acromatopsia-filter">
+                <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- =============================================================
+         MODO DE ACESSIBILIDADE
+         ============================================================= -->
+    <button id="accessibilityToggle" class="accessibility-toggle" aria-label="Acessibilidade">
+        <i class="bi bi-universal-access"></i>
+    </button>
+
+    <div id="accessibilityOverlay" class="accessibility-overlay"></div>
+
+    <aside id="accessibilityMenu" class="accessibility-menu">
+        <div class="accessibility-menu-header">
+            <h3>Acessibilidade</h3>
+            <button id="accessibilityClose" class="accessibility-close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <h4>Filtros de Daltonismo</h4>
+        <div class="accessibility-options">
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-padrao" name="daltonismo" value="padrao" checked>
+                <label for="filtro-padrao">Modo Padrão</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-protanopia" name="daltonismo" value="protanopia">
+                <label for="filtro-protanopia">Protanopsia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-deuteranopia" name="daltonismo" value="deuteranopia">
+                <label for="filtro-deuteranopia">Deuteranopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-tritanopia" name="daltonismo" value="tritanopia">
+                <label for="filtro-tritanopia">Tritanopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-acromatopsia" name="daltonismo" value="acromatopsia">
+                <label for="filtro-acromatopsia">Acromatopsia</label>
+            </div>
+        </div>
+    </aside>
+
+    <!-- =============================================================
+         SCRIPTS
+         ============================================================= -->
+
+
+
+    <!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<!-- Configuração do projeto -->
+<script src="../js/supabase.js"></script>   <!-- ajuste o caminho se necessário -->
+
+<!-- Seus outros scripts -->
+<script src="../js/login.js"></script>
+    <script src="../js/idioma.js"></script>
+    <script src="../js/noturno.js"></script>
+    <script src="../js/acessibilidade.js"></script>
+    <script src="../js/login.js"></script>
+
+</body>
+
+</html>

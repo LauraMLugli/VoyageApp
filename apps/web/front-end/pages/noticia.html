@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/noticia.css">
+    <link rel="stylesheet" href="../css/noturno.css">
+    <link rel="stylesheet" href="../css/acessibilade.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Notícia | Voyage</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="brand">
+                <a href="/apps/web/index.html">
+                    <img src="../img/voyage_logo.svg" 
+                        data-src-normal="../img/voyage_logo.svg" 
+                        data-src-noturna="../img/voyage_logo_noturna.svg" 
+                        alt="Logo Voyage" class="logo">
+                </a>
+                <span class="brand-name">Voyage</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../pages/parceiros.html">Parceiros</a></li>
+                    <li><a href="../pages/blog.html">Blog</a></li>
+                    <li><a href="../pages/regioes.html">Regiões</a></li>
+                    <li><a href="../pages/sobre_nos.html">Sobre Voyage</a></li>
+                </ul>
+            </nav>
+            <a href="../pages/app.html" class="btn-install"><i class="bi bi-download"></i> Instale o App</a>
+            <button onclick="toggleDarkMode()" class="dark-mode-toggle" aria-label="Alternar modo noturno">
+                <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+            </button>
+            <div class="language-selector">
+                <button id="languageBtn" class="language-toggle" onclick="toggleLanguageMenu()">
+                    <i class="bi bi-globe"></i> <span id="languageLabel">PT</span>
+                </button>
+                <div id="languageMenu" class="language-menu">
+                    <button onclick="setLanguage('pt')">🇧🇷 Português</button>
+                    <button onclick="setLanguage('en')">🇺🇸 English</button>
+                    <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== CONTEÚDO DA NOTÍCIA (CARREGADO VIA JS) ===== -->
+        <main class="noticia-content" id="noticiaContent">
+            <section class="noticia-container">
+    <div class="noticia-imagem">
+        <img src="" alt="Imagem da notícia" class="noticia-img">
+    </div>
+
+    <div class="noticia-info">
+        <span class="noticia-autor">Autor</span>
+        <span class="noticia-data">Data</span>
+    </div>
+
+    <h1 class="noticia-titulo">Carregando...</h1>
+
+    <div class="noticia-conteudo">
+        <p>Carregando conteúdo...</p>
+    </div>
+
+    <a href="blog.html" class="btn-voltar">← Voltar ao Blog</a>
+</section>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-i18n="footer_bemvindo">Bem-vindo</h3>
+                    <ul>
+                        <li><a href="../pages/regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                        <li><a href="../pages/blog.html" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="../pages/sobre_nos.html" data-i18n="nav_sobre">Sobre Nós</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_sobre">Sobre Nós</h3>
+                    <ul>
+                        <li><a href="../pages/sobre_nos.html#equipe" data-i18n="footer_equipe">Equipe</a></li>
+                        <li><a href="../pages/sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                        <li><a href="../pages/sobre_nos.html#privacidade" data-i18n="footer_privacidade">Privacidade</a></li>
+                        <li><a href="../pages/sobre_nos.html#termos" data-i18n="footer_termos">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h3 data-i18n="footer_contato">Contato</h3>
+                    <a href="mailto:info.voyage.app@gmail.com" class="footer-email" data-i18n="footer_email">
+                        <i class="bi bi-envelope-fill"></i> info.voyage.app@gmail.com
+                    </a>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                        <!-- Botão de Login ADM -->
+                    <a href="app.html" class="admin-login-link" title="Área Administrativa">
+                        <i class="bi-box-arrow-in-right"></i> 
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_direitos">&copy; 2026 Voyage. Todos os direitos reservados.</p>
+                <p class="footer-credit">
+                    <span data-i18n="footer_credit">Imagem por</span> 
+                    <a href="https://gustavodelvechio.com.br" target="_blank" rel="noopener noreferrer">Gustavo Del Vechio</a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="languageToast" class="language-toast"></div>
+
+    <!-- Filtros de Daltonismo (SVG) -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0
+                                                     0.558 0.442 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="deuteranopia-filter">
+                <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                                     0.7 0.3 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                     0 1 0 0 0
+                                                     0 0 0.567 0.433 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="acromatopsia-filter">
+                <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- ===== MODO DE ACESSIBILIDADE ===== -->
+    <button id="accessibilityToggle" class="accessibility-toggle" aria-label="Acessibilidade">
+        <i class="bi bi-universal-access"></i>
+    </button>
+
+    <div id="accessibilityOverlay" class="accessibility-overlay"></div>
+
+    <aside id="accessibilityMenu" class="accessibility-menu">
+        <div class="accessibility-menu-header">
+            <h3>Acessibilidade</h3>
+            <button id="accessibilityClose" class="accessibility-close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <h4>Filtros de Daltonismo</h4>
+        <div class="accessibility-options">
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-padrao" name="daltonismo" value="padrao" checked>
+                <label for="filtro-padrao">Modo Padrão</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-protanopia" name="daltonismo" value="protanopia">
+                <label for="filtro-protanopia">Protanopsia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-deuteranopia" name="daltonismo" value="deuteranopia">
+                <label for="filtro-deuteranopia">Deuteranopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-tritanopia" name="daltonismo" value="tritanopia">
+                <label for="filtro-tritanopia">Tritanopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-acromatopsia" name="daltonismo" value="acromatopsia">
+                <label for="filtro-acromatopsia">Acromatopsia</label>
+            </div>
+        </div>
+    </aside>
+
+    <div id="accessibilityToast" class="accessibility-toast"></div>
+
+    <!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Configuração do projeto -->
+<script src="../js/supabase.js"></script>   <!-- ajuste o caminho se necessário -->
+
+<!-- Seus outros scripts -->
+<script src="../js/login.js"></script>
+    <script src="../js/noturno.js"></script>
+    <script src="../js/acessibilidade.js"></script>
+    <script src="../js/idioma.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/noticia.js"></script>
+    <!-- Código de integração do VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+
+</html>

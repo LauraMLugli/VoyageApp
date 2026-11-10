@@ -1,0 +1,244 @@
+/* =============================================
+   NOTÍCIA - ESTILOS ESPECÍFICOS
+   ============================================= */
+
+/* ===== FUNDO GERAL ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ===== CONTEÚDO DA NOTÍCIA ===== */
+.noticia-content {
+    padding: 4rem 6% 6rem 6%;
+    display: flex;
+    justify-content: center;
+}
+
+.noticia-container {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Título e Subtítulo */
+.noticia-titulo {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333333;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.noticia-subtitulo {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Imagens */
+.noticia-imagem-principal {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 24px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.noticia-imagem-secundaria {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 24px;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Corpo do Texto */
+.noticia-corpo {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.noticia-corpo p {
+    margin-bottom: 1.5rem;
+}
+
+/* ===== BOTÃO DA FATEC (Apenas para a notícia 5) ===== */
+.noticia-btn-fatec {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.noticia-btn-fatec:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 201, 167, 0.5);
+}
+
+.noticia-btn-fatec i {
+    font-size: 1.2rem;
+}
+
+/* ===== CRÉDITOS ===== */
+.noticia-creditos {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.noticia-creditos a {
+    color: #00C9A7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.noticia-creditos a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+    .noticia-titulo {
+        font-size: 2.2rem;
+    }
+
+    .noticia-imagem-principal {
+        height: 250px;
+    }
+
+    .noticia-imagem-secundaria {
+        height: 200px;
+    }
+}
+
+/* =============================================
+   NOTÍCIA - ESTILOS
+   ============================================= */
+
+.noticia-content {
+    padding: 3rem 6% 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.noticia-container {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Meta (autor + data) */
+.noticia-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.noticia-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.noticia-meta i {
+    font-size: 1rem;
+    color: #00C9A7;
+}
+
+/* Título */
+.noticia-titulo {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.25;
+    margin: 0 0 1.5rem 0;
+}
+
+/* Imagem principal */
+.noticia-imagem-principal {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Corpo do texto */
+.noticia-corpo {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.85;
+}
+
+.noticia-corpo p {
+    margin-bottom: 1.4rem;
+    white-space: pre-line;
+}
+
+/* Botão voltar */
+.btn-voltar-noticia {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    background: transparent;
+    border: 1.5px solid #00C9A7;
+    color: #00C9A7;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn-voltar-noticia:hover {
+    background: #00C9A7;
+    color: #fff;
+}
+
+/* Estado de carregamento / erro */
+.noticia-loading,
+.noticia-erro {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #888;
+    font-size: 1.1rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    .noticia-titulo {
+        font-size: 1.85rem;
+    }
+
+    .noticia-imagem-principal {
+        max-height: 240px;
+        border-radius: 14px;
+    }
+
+    .noticia-corpo {
+        font-size: 1.05rem;
+    }
+
+    .noticia-content {
+        padding: 2rem 5% 3rem;
+    }
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sobre.css">
+    <link rel="stylesheet" href="../css/noturno.css">
+    <link rel="stylesheet" href="../css/acessibilade.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Sobre Nós | Voyage</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="brand">
+                <a href="/apps/web/index.html">
+                    <img src="../img/voyage_logo.svg" alt="Logo Voyage" class="logo">
+                </a>
+                <span class="brand-name">Voyage</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="parceiros.html" data-i18n="nav_parceiros">Parceiros</a></li>
+                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                </ul>
+            </nav>
+            <a href="app.html" class="btn-install" data-i18n="btn_instalar"><i class="bi bi-download"></i> Instale o
+                App</a>
+            <button onclick="toggleDarkMode()" class="dark-mode-toggle" aria-label="Alternar modo noturno">
+                <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+            </button>
+            <div class="language-selector">
+                <button id="languageBtn" class="language-toggle" onclick="toggleLanguageMenu()">
+                    <i class="bi bi-globe"></i> <span id="languageLabel">PT</span>
+                </button>
+                <div id="languageMenu" class="language-menu">
+                    <button onclick="setLanguage('pt')">🇧🇷 Português</button>
+                    <button onclick="setLanguage('en')">🇺🇸 English</button>
+                    <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== SEÇÃO 1: SOBRE A VOYAGE ===== -->
+        <section class="sobre-voyage-section" id="sobre">
+            <div class="sobre-voyage-container">
+                <div class="sobre-voyage-text">
+                    <span class="section-tag" data-i18n="sobre_tag">Quem Somos</span>
+                    <h2 data-i18n="sobre_titulo">O Voyage é um projeto da <br><strong>Fatec Taquaritinga</strong></h2>
+                    <p data-i18n="sobre_desc_1">
+                        Desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas,
+                        o Voyage nasceu com o propósito de unir tecnologia e mobilidade urbana.
+                        Nosso objetivo é transformar a experiência do transporte público,
+                        oferecendo uma solução inteligente, acessível e conectada para todos.
+                    </p>
+                    <p data-i18n="sobre_desc_2">
+                        Este projeto é fruto de muito estudo, dedicação e trabalho em equipe,
+                        refletindo o espírito inovador da Fatec Taquaritinga.
+                    </p>
+                </div>
+                <div class="sobre-voyage-image">
+                    <img src="../img/logo_fatec.svg" alt="Logo Fatec Taquaritinga">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO 2: EQUIPE ===== -->
+        <section class="equipe-section" id="equipe">
+            <div class="equipe-container">
+                <span class="section-tag" data-i18n="equipe_tag">Nossa Equipe</span>
+                <h2 data-i18n="equipe_titulo">Quem fez o Voyage acontecer</h2>
+                <p class="equipe-subtitle" data-i18n="equipe_subtitulo">Conheça os alunos que desenvolveram este
+                    projeto.</p>
+
+                <div class="equipe-grid">
+                    <!-- Card 1 -->
+                    <div class="equipe-card">
+                        <div class="equipe-foto">
+                            <img src="../img/murilo.jpeg" alt="Foto do Aluno 1">
+                        </div>
+                        <h3>Murilo Santos Lima</h3>
+                        <p class="equipe-role" data-i18n="equipe_role_1">Desenvolvedor Front-end</p>
+                        <p class="equipe-desc" data-i18n="equipe_desc_1">Responsável pela interface, design responsivo e
+                            experiência do usuário.</p>
+                        <div class="equipe-social">
+                            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="equipe-card">
+                        <div class="equipe-foto">
+                            <img src="../img/francisco.jpg" alt="Foto do Aluno 2">
+                        </div>
+                        <h3>Francisco Carlos Amoroso Junior</h3>
+                        <p class="equipe-role" data-i18n="equipe_role_2">Desenvolvedor Back-end</p>
+                        <p class="equipe-desc" data-i18n="equipe_desc_2">Responsável pela lógica de programação, banco
+                            de dados e integrações.</p>
+                        <div class="equipe-social">
+                            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="equipe-card">
+                        <div class="equipe-foto">
+                            <img src="../img/laura.jpg" alt="Foto do Aluno 3">
+                        </div>
+                        <h3>Laura Morselli Lugli</h3>
+                        <p class="equipe-role" data-i18n="equipe_role_3">Designer e UX</p>
+                        <p class="equipe-desc" data-i18n="equipe_desc_3">Responsável pela identidade visual, protótipos
+                            e usabilidade do aplicativo.</p>
+                        <div class="equipe-social">
+                            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="equipe-card">
+                        <div class="equipe-foto">
+                            <img src="../img/william.jpg" alt="Foto do Aluno 4">
+                        </div>
+                        <h3>Willian Wallace</h3>
+                        <p class="equipe-role" data-i18n="equipe_role_4">Gestor de Projeto</p>
+                        <p class="equipe-desc" data-i18n="equipe_desc_4">Responsável pelo planejamento, organização de
+                            tarefas e documentação.</p>
+                        <div class="equipe-social">
+                            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO 3: PRIVACIDADE ===== -->
+        <section class="docs-section" id="privacidade">
+            <div class="docs-container">
+                <div class="docs-icon">
+                    <i class="bi bi-shield-lock-fill"></i>
+                </div>
+                <span class="section-tag" data-i18n="privacidade_tag">Segurança</span>
+                <h2 data-i18n="privacidade_titulo">Política de Privacidade</h2>
+                <p data-i18n="privacidade_desc">
+                    Saiba como coletamos, usamos e protegemos seus dados pessoais.
+                    Nossa política de privacidade está disponível para download em PDF.
+                </p>
+                <a href="../docs/politica_privacidade.pdf" target="_blank" class="btn-download">
+                    <i class="bi bi-file-earmark-pdf"></i> <span data-i18n="privacidade_btn">Baixar PDF</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO 4: TERMOS DE USO ===== -->
+        <section class="docs-section docs-section-alt" id="termos">
+            <div class="docs-container">
+                <div class="docs-icon">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                </div>
+                <span class="section-tag" data-i18n="termos_tag">Direitos e Deveres</span>
+                <h2 data-i18n="termos_titulo">Termos de Uso</h2>
+                <p data-i18n="termos_desc">
+                    Leia atentamente os termos e condições para usar o aplicativo Voyage.
+                    Seus direitos e responsabilidades estão detalhados no documento abaixo.
+                </p>
+                <a href="../docs/termos_uso.pdf" target="_blank" class="btn-download">
+                    <i class="bi bi-file-earmark-pdf"></i> <span data-i18n="termos_btn">Baixar PDF</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-i18n="footer_bemvindo">Bem-vindo</h3>
+                    <ul>
+                        <li><a href="regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                        <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="sobre_nos.html" data-i18n="nav_sobre">Sobre Nós</a></li>
+                                            <!-- Botão de Login ADM -->
+                    <a href="login.html" class="admin-login-link" title="Área Administrativa">
+                        <i class="bi-box-arrow-in-right"></i> 
+                    </a>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_sobre">Sobre Nós</h3>
+                    <ul>
+                        <li><a href="#equipe" data-i18n="footer_equipe">Equipe</a></li>
+                        <li><a href="#sobre" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                        <li><a href="#privacidade" data-i18n="footer_privacidade">Privacidade</a></li>
+                        <li><a href="#termos" data-i18n="footer_termos">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h3 data-i18n="footer_contato">Contato</h3>
+                    <a href="mailto:info.voyage.app@gmail.com" class="footer-email" data-i18n="footer_email">
+                        <i class="bi bi-envelope-fill"></i> info.voyage.app@gmail.com
+                    </a>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_direitos">&copy; 2026 Voyage. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- MUDAR PARA O BACK TALVEZ !!!! -->
+    <!-- Filtros de Daltonismo (SVG) -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0
+                                                     0.558 0.442 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="deuteranopia-filter">
+                <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                                     0.7 0.3 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                     0 1 0 0 0
+                                                     0 0 0.567 0.433 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="acromatopsia-filter">
+                <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div id="languageToast" class="language-toast"></div>
+
+    <!-- ===== MODO DE ACESSIBILIDADE ===== -->
+    <button id="accessibilityToggle" class="accessibility-toggle" aria-label="Acessibilidade">
+        <i class="bi bi-universal-access"></i>
+    </button>
+
+    <div id="accessibilityOverlay" class="accessibility-overlay"></div>
+
+    <aside id="accessibilityMenu" class="accessibility-menu">
+        <div class="accessibility-menu-header">
+            <h3>Acessibilidade</h3>
+            <button id="accessibilityClose" class="accessibility-close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <h4>Filtros de Daltonismo</h4>
+        <div class="accessibility-options">
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-padrao" name="daltonismo" value="padrao" checked>
+                <label for="filtro-padrao">Modo Padrão</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-protanopia" name="daltonismo" value="protanopia">
+                <label for="filtro-protanopia">Protanopsia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-deuteranopia" name="daltonismo" value="deuteranopia">
+                <label for="filtro-deuteranopia">Deuteranopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-tritanopia" name="daltonismo" value="tritanopia">
+                <label for="filtro-tritanopia">Tritanopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-acromatopsia" name="daltonismo" value="acromatopsia">
+                <label for="filtro-acromatopsia">Acromatopsia</label>
+            </div>
+        </div>
+    </aside>
+
+    <div id="accessibilityToast" class="accessibility-toast"></div>
+
+    <!-- Filtros SVG -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0
+                                                     0.558 0.442 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="deuteranopia-filter">
+                <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                                     0.7 0.3 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                     0 1 0 0 0
+                                                     0 0 0.567 0.433 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="acromatopsia-filter">
+                <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <script src="../js/noturno.js"></script>
+    <script src="../js/acessibilidade.js"></script>
+    <script src="../js/idioma.js"></script>
+    <!-- Código de integração do VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+/* =============================================
+   REGIÕES - ESTILOS ESPECÍFICOS
+   ============================================= */
+
+/* ===== FUNDO GERAL ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ===== SEÇÃO HERO (Procure sua cidade) ===== */
+.regioes-hero {
+    padding: 6rem 6% 5rem 6%;
+    background: linear-gradient(180deg, #C8E6C9 0%, #E0F2F1 100%);
+}
+
+.regioes-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.regioes-hero-text {
+    flex: 1;
+    max-width: 550px;
+}
+
+.regioes-hero-text h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #333333;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.regioes-hero-text h3 {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.regioes-hero-image {
+    flex: 1;
+    max-width: 600px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.regioes-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ===== SEÇÃO CIDADES ===== */
+.cidades-section {
+    padding: 5rem 6% 6rem 6%;
+    background: linear-gradient(180deg, #E0F2F1 0%, #C8E6C9 100%);
+}
+
+.cidades-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cidades-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333333;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.cidades-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* ===== BARRA DE PESQUISA ===== */
+.search-bar {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 1.2rem;
+    font-size: 1.2rem;
+    color: #1B5E20;
+    z-index: 10;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.2rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: text;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input::placeholder {
+    color: #999;
+}
+
+.search-bar input:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar input:focus {
+    border-color: #00C9A7;
+    box-shadow: 0 6px 20px rgba(0, 201, 167, 0.15);
+    outline: none;
+}
+
+/* ===== LISTA DE CIDADES ===== */
+.cidades-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cidade-item {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.cidade-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.cidade-info {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.cidade-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 201, 167, 0.3);
+}
+
+.cidade-item h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1B5E20;
+    margin-bottom: 0.2rem;
+}
+
+.cidade-status {
+    font-size: 0.85rem;
+    color: #666;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00C9A7;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.btn-cidade {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 4px 12px rgba(0, 201, 167, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-cidade:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 201, 167, 0.5);
+}
+
+.btn-cidade i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-cidade:hover i {
+    transform: translateX(4px);
+}
+
+/* ===== FILTRO DE PESQUISA (JavaScript) ===== */
+.cidade-item.hidden {
+    display: none;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+    .regioes-hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .regioes-hero-text {
+        max-width: 100%;
+    }
+
+    .regioes-hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .regioes-hero-image {
+        max-width: 100%;
+    }
+
+    .cidades-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cidade-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .cidade-info {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Instale o App | Voyage</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="brand">
+                <a href="/apps/web/index.html">
+                <img src="../img/voyage_logo.svg" alt="Logo Voyage" class="logo">
+                </a>
+                <span class="brand-name">Voyage</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="parceiros.html" class="active" data-i18n="nav_parceiros">Parceiros</a></li>
+                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                    <li><a href="sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                                        <!-- Botão de Login ADM -->
+                    <a href="login.html" class="admin-login-link" title="Área Administrativa">
+                        <i class="bi-box-arrow-in-right"></i> 
+                    </a>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <button id="languageBtn" class="language-toggle" onclick="toggleLanguageMenu()">
+                    <i class="bi bi-globe"></i> <span id="languageLabel">PT</span>
+                </button>
+                <div id="languageMenu" class="language-menu">
+                    <button onclick="setLanguage('pt')">🇧🇷 Português</button>
+                    <button onclick="setLanguage('en')">🇺🇸 English</button>
+                    <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== CONTEÚDO PRINCIPAL (APENAS IMAGEM) ===== -->
+<!-- ===== CONTEÚDO PRINCIPAL ===== -->
+<main class="app-content">
+    <div class="app-hero">
+
+        <!-- Texto -->
+        <div class="app-text">
+            <span class="app-badge">
+                <i class="bi bi-phone"></i> Aplicativo oficial
+            </span>
+
+            <h1>Leve o Voyage<br>no seu bolso</h1>
+
+            <p class="app-desc">
+                Acompanhe seu ônibus em tempo real, gerencie sua carteira de transporte
+                e recarregue o saldo com poucos toques. Mobilidade inteligente na palma da mão.
+            </p>
+
+            <ul class="app-features">
+                <li>
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>Rastreamento ao vivo do seu ônibus</span>
+                </li>
+                <li>
+                    <i class="bi bi-wallet2"></i>
+                    <span>Carteira digital e recarga pelo celular</span>
+                </li>
+                <li>
+                    <i class="bi bi-bell-fill"></i>
+                    <span>Alertas de chegada nos pontos</span>
+                </li>
+                <li>
+                    <i class="bi bi-shield-check"></i>
+                    <span>Simples, rápido e seguro</span>
+                </li>
+            </ul>
+
+            <div class="app-actions">
+                <!-- Troque o href pelo link real da Play Store quando tiver -->
+                <a href="https://play.google.com/store" target="_blank" rel="noopener"
+                   class="btn-playstore">
+                    <i class="bi bi-google-play"></i>
+                    <div class="btn-playstore-text">
+                        <small>Disponível no</small>
+                        <strong>Google Play</strong>
+                    </div>
+                </a>
+
+                <p class="app-qr-hint">
+                    Ou escaneie o QR Code ao lado
+                </p>
+            </div>
+        </div>
+
+        <!-- QR Code -->
+        <div class="app-image-container">
+            <img src="../img/qr-code.png" alt="QR Code do aplicativo Voyage">
+            <p class="qr-caption">Escaneie para baixar</p>
+        </div>
+
+    </div>
+</main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-i18n="footer_bemvindo">Bem-vindo</h3>
+                    <ul>
+                        <li><a href="regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                        <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="sobre_nos.html" data-i18n="nav_sobre">Sobre Nós</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_sobre">Sobre Nós</h3>
+                    <ul>
+                        <li><a href="sobre_nos.html#equipe" data-i18n="footer_equipe">Equipe</a></li>
+                        <li><a href="sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                        <li><a href="sobre_nos.html#privacidade" data-i18n="footer_privacidade">Privacidade</a></li>
+                        <li><a href="sobre_nos.html#termos" data-i18n="footer_termos">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h3 data-i18n="footer_contato">Contato</h3>
+                    <a href="mailto:info.voyage.app@gmail.com" class="footer-email" data-i18n="footer_email">
+                        <i class="bi bi-envelope-fill"></i> info.voyage.app@gmail.com
+                    </a>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                        <!-- Botão de Login ADM -->
+                    <a href="login.html" class="admin-login-link" title="Área Administrativa">
+                        <i class="bi-box-arrow-in-right"></i> 
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_direitos">&copy; 2026 Voyage. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+    </div>
+
+        <div id="languageToast" class="language-toast"></div>
+
+    <!-- Código de integração do VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="../js/idioma.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+</body>
+
+</html>

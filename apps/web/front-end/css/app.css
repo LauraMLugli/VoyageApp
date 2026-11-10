@@ -1,0 +1,229 @@
+/* =============================================
+   APP - PÁGINA DE DOWNLOAD
+   ============================================= */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ===== CONTEÚDO ===== */
+.app-content {
+    width: 100%;
+    padding: 4rem 6% 5rem;
+    background: linear-gradient(160deg, #e8f5e9 0%, #e0f2f1 45%, #f5f9fc 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-hero {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+/* ===== TEXTO ===== */
+.app-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.9rem;
+    background: rgba(0, 201, 167, 0.12);
+    color: #0d9488;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.app-text h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #0f172a;
+    margin: 0 0 1.25rem;
+}
+
+.app-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #475569;
+    margin: 0 0 1.75rem;
+    max-width: 480px;
+}
+
+.app-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.app-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #334155;
+}
+
+.app-features i {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    color: #00C9A7;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+}
+
+/* ===== BOTÃO PLAY STORE ===== */
+.app-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+}
+
+.btn-playstore {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.4rem;
+    background: #0f172a;
+    color: #fff;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+}
+
+.btn-playstore:hover {
+    transform: translateY(-3px);
+    background: #1e293b;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.35);
+    color: #fff;
+}
+
+.btn-playstore i {
+    font-size: 2rem;
+    color: #00C9A7;
+}
+
+.btn-playstore-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.btn-playstore-text small {
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
+.btn-playstore-text strong {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.app-qr-hint {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ===== QR CODE ===== */
+.app-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.app-image-container img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: block;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    background: #fff;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-image-container img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.16);
+}
+
+.qr-caption {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+    .app-hero {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .app-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .app-desc {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .app-features {
+        align-items: center;
+    }
+
+    .app-features li {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .app-actions {
+        align-items: center;
+        width: 100%;
+    }
+
+    .app-image-container img {
+        max-width: 260px;
+    }
+}
+
+@media (max-width: 600px) {
+    .app-content {
+        padding: 2.5rem 5% 3rem;
+    }
+
+    .app-text h1 {
+        font-size: 1.85rem;
+    }
+
+    .app-desc {
+        font-size: 1rem;
+    }
+}

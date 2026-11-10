@@ -1,0 +1,603 @@
+/* =============================================
+   MODO NOTURNO - ESTILOS GLOBAIS (DEGRADÊ CONTÍNUO)
+   ============================================= */
+
+/* ===== VARIÁVEIS DO MODO NOTURNO ===== */
+body.dark-mode {
+    --text-dark: #e0e0e0;
+    --green-light: #1a2e35;
+    --green-medium: #0f1f26;
+    --green-dark: #a0d8c0;
+    --green-accent: #00C9A7;
+}
+
+/* ===== FUNDO GLOBAL (Degradê que percorre TODA a página) ===== */
+/* Este degradê vai do verde escuro no topo, passando pelo azul, até o azul profundo no fim */
+body.dark-mode {
+    background: linear-gradient(180deg, 
+        #0f1f26 0%,    /* Header (Verde escuro) */
+        #1a2e35 20%,   /* Main / Carrossel (Verde médio escuro) */
+        #1a2e35 40%,   /* Regiões (Continua verde médio) */
+        #0f1f26 60%,   /* Visão (Verde escuro) */
+        #08152a 80%,   /* Blog (Azul escuro) */
+        #05101f 100%   /* Footer (Azul profundo) */
+    );
+}
+
+/* ===== FILTRO DE IMAGENS (Para escurecer automaticamente) ===== */
+body.dark-mode img {
+    filter: brightness(0.85) contrast(1.1);
+}
+
+body.dark-mode .brand img.logo {
+    filter: brightness(1.5) drop-shadow(0 0 10px rgba(0, 201, 167, 0.3));
+}
+
+/* ===== HEADER (Transparente para integração com o fundo) ===== */
+body.dark-mode .header {
+    background: transparent;
+}
+
+body.dark-mode .brand-name {
+    background: linear-gradient(90deg, #00C9A7, #00e5b0, #4dd0e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark-mode .nav-menu a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-menu a:hover {
+    color: #00C9A7;
+}
+
+body.dark-mode .nav-menu a::after {
+    background-color: #00C9A7;
+}
+
+/* ===== BOTÃO INSTALE O APP ===== */
+body.dark-mode .btn-install {
+    background: linear-gradient(135deg, #0F2C59 0%, #00C9A7 100%);
+    box-shadow: 0 4px 15px rgba(0, 201, 167, 0.2);
+}
+
+/* ===== CARROSSEL (Transparente para integração) ===== */
+body.dark-mode .main-content {
+    background: transparent;
+}
+
+body.dark-mode .card {
+    background: rgba(15, 31, 38, 0.95);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .card .tag {
+    background: rgba(0, 0, 0, 0.3);
+    color: #00C9A7;
+}
+
+body.dark-mode .card h1 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .card p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .card-image {
+    background: transparent;
+}
+
+/* ===== SEÇÃO REGIÕES (Transparente) ===== */
+body.dark-mode .regions-section {
+    background: transparent;
+}
+
+body.dark-mode .regions-tag {
+    background: rgba(0, 0, 0, 0.3);
+    color: #00C9A7;
+}
+
+body.dark-mode .regions-text h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .regions-text p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .highlight-city {
+    background: linear-gradient(135deg, #00C9A7, #4dd0e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark-mode .regions-images {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== SEÇÃO VISÃO (Transparente) ===== */
+body.dark-mode .vision-section {
+    background: transparent;
+}
+
+body.dark-mode .vision-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00C9A7;
+}
+
+body.dark-mode .vision-text h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .vision-text p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .vision-highlight {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .vision-image {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== SEÇÃO BLOG (Transparente) ===== */
+body.dark-mode .blog-section {
+    background: transparent;
+}
+
+body.dark-mode .blog-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00C9A7;
+}
+
+body.dark-mode .blog-content h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .blog-content p {
+    color: #b0b0b0;
+}
+
+/* ===== RODAPÉ (Transparente) ===== */
+body.dark-mode .footer {
+    background: transparent;
+}
+
+body.dark-mode .footer-col h3 {
+    color: #00C9A7;
+}
+
+body.dark-mode .footer-col ul li a {
+    color: #b0b0b0;
+}
+
+body.dark-mode .footer-col ul li a:hover {
+    color: #00C9A7;
+}
+
+body.dark-mode .footer-email {
+    color: #b0b0b0;
+}
+
+body.dark-mode .footer-social a {
+    background: rgba(255, 255, 255, 0.05);
+    color: #b0b0b0;
+}
+
+body.dark-mode .footer-social a:hover {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    color: #ffffff;
+}
+
+/* ===== BOTÕES GLOBAIS ===== */
+body.dark-mode .btn-primary,
+body.dark-mode .btn-regions,
+body.dark-mode .btn-cidade,
+body.dark-mode .btn-parceiro,
+body.dark-mode .btn-download,
+body.dark-mode .btn-blog {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 4px 15px rgba(0, 201, 167, 0.2);
+}
+
+body.dark-mode .btn-secondary {
+    background: transparent;
+    color: #00C9A7;
+    border: 2px solid #00C9A7;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: #0f1f26;
+}
+
+/* ===== SETAS E PONTOS DO SLIDER ===== */
+body.dark-mode .arrow {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    color: #ffffff;
+}
+
+body.dark-mode .slider-indicators .dot {
+    background: #0f1f26;
+}
+
+body.dark-mode .slider-indicators .dot.active {
+    background: #00C9A7;
+}
+
+/* ===== PÁGINA SOBRE ===== */
+body.dark-mode .sobre-voyage-section {
+    background: transparent;
+}
+
+body.dark-mode .sobre-voyage-container {
+    background: #1a2e35;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .sobre-voyage-text p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .equipe-section {
+    background: transparent;
+}
+
+body.dark-mode .equipe-subtitle {
+    color: #b0b0b0;
+}
+ 
+body.dark-mode .sobre-voyage-text h2 {
+    color:#b0b0b0;
+}
+
+body.dark-mode .equipe-container h2 {
+    color:#b0b0b0 ;
+}
+
+body.dark-mode .equipe-card {
+    background: #1a2e35;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .equipe-card h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .equipe-role {
+    background: #0f1f26;
+    color: #00C9A7;
+}
+
+body.dark-mode .equipe-desc {
+    color: #b0b0b0;
+}
+
+body.dark-mode .equipe-social a {
+    background: #0f1f26;
+    color: #b0b0b0;
+}
+
+body.dark-mode .equipe-social a:hover {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    color: #ffffff;
+}
+
+/* ===== SEÇÃO 3: PRIVACIDADE (Azul Esverdeado Escuro) ===== */
+body.dark-mode .docs-section {
+    background: transparent;
+}
+
+body.dark-mode .docs-container {
+    background: #1a2e35;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .docs-container p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .docs-icon {
+    background: linear-gradient(135deg, #0f1f26, #1a2e35);
+    color: #00C9A7;
+}
+
+body.dark-mode .docs-container h2 {
+    color: #ffffff;
+}
+
+/* ===== SEÇÃO 4: TERMOS DE USO (Azul Profundo) ===== */
+body.dark-mode .docs-section-alt {
+    background: transparent;
+}
+
+body.dark-mode .docs-section-alt .docs-container {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .docs-section-alt .section-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00C9A7;
+}
+
+body.dark-mode .docs-section-alt h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .docs-section-alt .docs-container p {
+    color: #b0b0b0;
+}
+
+/* ===== PÁGINA REGIÕES ===== */
+body.dark-mode .regioes-hero {
+    background: transparent;
+}
+
+body.dark-mode .regioes-hero-text h1 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .regioes-hero-text h3 {
+    color: #b0b0b0;
+}
+
+body.dark-mode .cidades-section {
+    background: transparent;
+}
+
+body.dark-mode .cidades-container h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .cidades-subtitle {
+    color: #b0b0b0;
+}
+
+body.dark-mode .search-bar input {
+    background: #1a2e35;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+body.dark-mode .cidade-item {
+    background: #1a2e35;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .cidade-item h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .cidade-status {
+    color: #b0b0b0;
+}
+
+/* ===== PÁGINA PARCEIROS ===== */
+body.dark-mode .parceiros-cards-section {
+    background: transparent;
+}
+
+body.dark-mode .parceiros-cards-container h1 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .parceiros-subtitle {
+    color: #b0b0b0;
+}
+
+body.dark-mode .parceiro-card {
+    background: #1a2e35;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .parceiro-card h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .parceiro-card p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .nossos-parceiros-section {
+    background: transparent;
+}
+
+body.dark-mode .nossos-parceiros-container h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .parceiros-empty-state {
+    background: #1a2e35;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .parceiros-empty-state .empty-icon {
+    background: #0f1f26;
+    color: #00C9A7;
+}
+
+body.dark-mode .parceiros-empty-state h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .parceiros-empty-state p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .parceiros-contato-section {
+    background: transparent;
+}
+
+body.dark-mode .parceiros-contato-container h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .parceiros-contato-subtitle {
+    color: #b0b0b0;
+}
+
+body.dark-mode .contato-card {
+    background: #1a2e35;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .contato-card h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .contato-card a {
+    color: #00C9A7;
+}
+
+/* ===== PÁGINA APP ===== */
+body.dark-mode .app-content {
+    background: transparent;
+}
+
+body.dark-mode .app-image-container img {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== BOTÃO MODO NOTURNO ===== */
+.dark-mode-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 201, 167, 0.4);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .dark-mode-toggle {
+        margin-left: 0;
+    }
+}
+
+/* ===== PÁGINA BLOG - MODO NOTURNO ===== */
+
+/* Hero do Blog */
+body.dark-mode .blog-hero {
+    background: transparent;
+}
+
+body.dark-mode .blog-hero-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #00C9A7;
+}
+
+body.dark-mode .blog-hero-container h1 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .blog-hero-container p {
+    color: #b0b0b0;
+}
+
+/* Grid de Notícias */
+body.dark-mode .blog-grid-section {
+    background: transparent;
+}
+
+/* Cards do Blog */
+body.dark-mode .blog-card {
+    background: #1a2e35;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .blog-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .blog-card-tag {
+    background: #0f1f26;
+    color: #00C9A7;
+}
+
+body.dark-mode .blog-card-content h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .blog-card-content p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .blog-card-btn {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 4px 12px rgba(0, 201, 167, 0.3);
+}
+
+body.dark-mode .blog-card-btn:hover {
+    box-shadow: 0 8px 20px rgba(0, 201, 167, 0.5);
+}
+
+/* ===== PÁGINA NOTÍCIA - MODO NOTURNO ===== */
+
+/* Conteúdo da notícia */
+body.dark-mode .noticia-content {
+    background: transparent;
+}
+
+body.dark-mode .noticia-titulo {
+    color: #e0e0e0;
+}
+
+body.dark-mode .noticia-subtitulo {
+    color: #b0b0b0;
+}
+
+body.dark-mode .noticia-corpo {
+    color: #b0b0b0;
+}
+
+body.dark-mode .noticia-imagem-principal,
+body.dark-mode .noticia-imagem-secundaria {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .noticia-creditos {
+    color: #b0b0b0;
+}
+
+body.dark-mode .noticia-creditos a {
+    color: #00C9A7;
+}
+
+body.dark-mode .noticia-btn-fatec {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3);
+}
+
+body.dark-mode .noticia-btn-fatec:hover {
+    box-shadow: 0 8px 25px rgba(0, 201, 167, 0.5);
+}

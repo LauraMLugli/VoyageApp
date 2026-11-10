@@ -1,0 +1,377 @@
+/* =============================================
+   SOBRE NÓS - ESTILOS ESPECÍFICOS
+   ============================================= */
+
+/* ===== FUNDO GERAL ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ===== SEÇÕES COMUNS ===== */
+.section-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    color: #1B5E20;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #333333;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+/* =============================================
+   SEÇÃO 1: SOBRE A VOYAGE (Verde Clarinho)
+   ============================================= */
+.sobre-voyage-section {
+    padding: 5rem 6% 4rem 6%;
+    background: linear-gradient(180deg, #E0F2F1 0%, #C8E6C9 100%);
+}
+
+.sobre-voyage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background: #ffffff;
+    padding: 3rem 4rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.sobre-voyage-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.sobre-voyage-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.sobre-voyage-image {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobre-voyage-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =============================================
+   SEÇÃO 2: EQUIPE (Verde Médio)
+   ============================================= */
+.equipe-section {
+    padding: 4rem 6% 6rem 6%;
+    background: linear-gradient(180deg, #C8E6C9 0%, #A3C4BC 100%);
+}
+
+.equipe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.equipe-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+}
+
+/* ===== CARD DO INTEGRANTE ===== */
+.equipe-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2.8rem 2rem 2rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.equipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== FOTO DO INTEGRANTE ===== */
+.equipe-foto {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.2rem;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 201, 167, 0.2);
+}
+
+.equipe-foto img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    background: #ffffff;
+}
+
+.equipe-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1B5E20;
+    margin-bottom: 0.3rem;
+}
+
+.equipe-role {
+    font-size: 0.9rem;
+    color: #0F2C59;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: #E0F2F1;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.equipe-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== REDES SOCIAIS DOS INTEGRANTES ===== */
+.equipe-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    width: 100%;
+}
+
+.equipe-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f5faf8;
+    color: #0F2C59;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.equipe-social a:hover {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    color: #ffffff;
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 201, 167, 0.3);
+}
+
+/* =============================================
+   SEÇÃO 3: PRIVACIDADE (Azul Esverdeado)
+   ============================================= */
+.docs-section {
+    padding: 5rem 6%;
+    background: linear-gradient(180deg, #A3C4BC 0%, #5A8F8C 100%);
+    text-align: center;
+}
+
+.docs-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 3.5rem 4rem 4rem 4rem;
+    border-radius: 28px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06),
+                0 5px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.docs-container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* Ícone decorativo */
+.docs-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E0F2F1, #C8E6C9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0F2C59;
+    font-size: 2.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.docs-container p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botão de Download */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 4px 20px rgba(0, 201, 167, 0.3);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-download::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0F2C59, #00C9A7);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.btn-download:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 35px rgba(0, 201, 167, 0.4);
+}
+
+.btn-download:hover::before {
+    opacity: 1;
+}
+
+.btn-download i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-download:hover i {
+    transform: translateX(4px) scale(1.1);
+}
+
+/* =============================================
+   SEÇÃO 4: TERMOS DE USO (Azul Escuro da Logo)
+   ============================================= */
+.docs-section-alt {
+    background: linear-gradient(180deg, #5A8F8C 0%, #0F2C59 100%);
+}
+
+.docs-section-alt .docs-container {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.docs-section-alt .docs-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E0F2F1, #C8E6C9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0F2C59;
+    font-size: 2.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.docs-section-alt .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: black;
+    backdrop-filter: blur(4px);
+}
+
+.docs-section-alt h2 {
+    color: black;
+}
+
+.docs-section-alt .docs-container p {
+    color: darkslategrey;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .sobre-voyage-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .sobre-voyage-text {
+        max-width: 100%;
+    }
+
+    .docs-container {
+        padding: 2rem;
+    }
+
+    .equipe-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .equipe-grid {
+        grid-template-columns: 1fr;
+    }
+}

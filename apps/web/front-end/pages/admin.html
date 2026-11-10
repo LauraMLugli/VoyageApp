@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Administrativa | Voyage</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="../img/voyage_logo.svg" alt="Voyage">
+                <span>Voyage</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="active" data-section="dashboard" onclick="mostrarSecao('dashboard')">
+                        <i class="bi bi-grid-1x2"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="noticias" onclick="mostrarSecao('noticias')">
+                        <i class="bi bi-newspaper"></i> Notícias
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="parceiros" onclick="mostrarSecao('parceiros')">
+                        <i class="bi bi-people"></i> Parceiros
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="regioes" onclick="mostrarSecao('regioes')">
+                        <i class="bi bi-geo-alt"></i> Regiões
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="logout()">
+                    <i class="bi bi-box-arrow-left"></i> Sair
+                </button>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="admin-content">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="section active">
+                <div class="admin-header">
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p>Visão geral do sistema Voyage</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Notícias</h3>
+                        <div class="number" id="count-noticias">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Parceiros</h3>
+                        <div class="number" id="count-parceiros">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Regiões</h3>
+                        <div class="number" id="count-regioes">0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NOTÍCIAS -->
+            <section id="noticias" class="section">
+                <div class="section-header">
+                    <h1>Notícias</h1>
+                    <button class="btn-primary" onclick="abrirModal('noticia')">
+                        <i class="bi bi-plus-lg"></i> Nova Notícia
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Status</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-noticias">
+                            <tr>
+                                <td colspan="5" class="empty-state">
+                                    <i class="bi bi-newspaper"></i>
+                                    <p>Nenhuma notícia cadastrada ainda</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- PARCEIROS -->
+            <section id="parceiros" class="section">
+                <div class="section-header">
+                    <h1>Parceiros</h1>
+                    <button class="btn-primary" onclick="abrirModal('parceiro')">
+                        <i class="bi bi-plus-lg"></i> Novo Parceiro
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-parceiros">
+                            <tr>
+                                <td colspan="4" class="empty-state">
+                                    <i class="bi bi-people"></i>
+                                    <p>Nenhum parceiro cadastrado ainda</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- REGIÕES -->
+            <section id="regioes" class="section">
+                <div class="section-header">
+                    <h1>Regiões</h1>
+                    <button class="btn-primary" onclick="abrirModal('regiao')">
+                        <i class="bi bi-plus-lg"></i> Nova Região
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-regioes">
+                            <tr>
+                                <td colspan="3" class="empty-state">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <p>Nenhuma região cadastrada ainda</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <h2 id="modal-titulo">Nova Notícia</h2>
+            <form id="form-modal">
+                <div id="campos-modal"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="fecharModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

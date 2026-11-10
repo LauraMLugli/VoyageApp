@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/regioes.css">
+    <link rel="stylesheet" href="../css/noturno.css">
+    <link rel="stylesheet" href="../css/acessibilade.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Regiões | Voyage</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="brand">
+                <a href="/apps/web/index.html">
+                    <img src="../img/voyage_logo.svg" data-src-normal="../img/voyage_logo.svg"
+                        data-src-noturna="../img/voyage_logo_noturna.svg" alt="Logo Voyage" class="logo">
+                </a>
+                <span class="brand-name">Voyage</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="parceiros.html" data-i18n="nav_parceiros">Parceiros</a></li>
+                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                </ul>
+            </nav>
+            <a href="../pages/app.html" class="btn-install" data-i18n="btn_instalar"><i class="bi bi-download"></i>
+                Instale o App</a>
+            <button onclick="toggleDarkMode()" class="dark-mode-toggle" aria-label="Alternar modo noturno">
+                <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+            </button>
+            <div class="language-selector">
+                <button id="languageBtn" class="language-toggle" onclick="toggleLanguageMenu()">
+                    <i class="bi bi-globe"></i> <span id="languageLabel">PT</span>
+                </button>
+                <div id="languageMenu" class="language-menu">
+                    <button onclick="setLanguage('pt')">🇧🇷 Português</button>
+                    <button onclick="setLanguage('en')">🇺🇸 English</button>
+                    <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== SEÇÃO HERO (Procure sua cidade) ===== -->
+        <section class="regioes-hero">
+            <div class="regioes-hero-container">
+                <div class="regioes-hero-text">
+                    <h1 data-i18n="regioes_hero_titulo">Procure se o Voyage<br>está na sua Cidade</h1>
+                    <h3 data-i18n="regioes_hero_desc">
+                        Estamos expandindo nossa operação para levar mobilidade inteligente
+                        a cada vez mais pessoas. Confira as regiões onde o app já está disponível.
+                    </h3>
+                </div>
+                <div class="regioes-hero-image">
+                    <img src="../img/regiaos.png" alt="Mapa com cidades atendidas">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO CIDADES (Lista + Pesquisa) ===== -->
+        <section class="cidades-section">
+            <div class="cidades-container">
+                <h2 data-i18n="cidades_titulo">Estado de São Paulo</h2>
+                <p class="cidades-subtitle" data-i18n="cidades_subtitulo">Cidades onde o Voyage já está operando</p>
+
+                <!-- Barra de Pesquisa -->
+                <div class="search-bar">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="searchInput" data-i18n-placeholder="cidades_placeholder"
+                        placeholder="Pesquisar cidade...">
+                </div>
+
+                <!-- Lista de Cidades -->
+                <div class="cidades-list" id="cidadesList">
+    <!-- As regiões serão carregadas aqui -->
+</div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-i18n="footer_bemvindo">Bem-vindo</h3>
+                    <ul>
+                        <li><a href="regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                        <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="sobre_nos.html" data-i18n="nav_sobre">Sobre Nós</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_sobre">Sobre Nós</h3>
+                    <ul>
+                        <li><a href="../pages/sobre_nos.html#equipe" data-i18n="footer_equipe">Equipe</a></li>
+                        <li><a href="../pages/sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                        <li><a href="../pages/sobre_nos.html#privacidade" data-i18n="footer_privacidade">Privacidade</a>
+                        </li>
+                        <li><a href="../pages/sobre_nos.html#termos" data-i18n="footer_termos">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h3 data-i18n="footer_contato">Contato</h3>
+                    <a href="mailto:info.voyage.app@gmail.com" class="footer-email" data-i18n="footer_email">
+                        <i class="bi bi-envelope-fill"></i> info.voyage.app@gmail.com
+                    </a>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                                            <!-- Botão de Login ADM -->
+                    <a href="login.html" class="admin-login-link" title="Área Administrativa">
+                        <i class="bi-box-arrow-in-right"></i> 
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_direitos">&copy; 2026 Voyage. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="languageToast" class="language-toast"></div>
+
+    <!-- MUDAR PARA O BACK TALVEZ !!!! -->
+    <!-- Filtros de Daltonismo (SVG) -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0
+                                                     0.558 0.442 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="deuteranopia-filter">
+                <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                                     0.7 0.3 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                     0 1 0 0 0
+                                                     0 0 0.567 0.433 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="acromatopsia-filter">
+                <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- ===== MODO DE ACESSIBILIDADE ===== -->
+    <button id="accessibilityToggle" class="accessibility-toggle" aria-label="Acessibilidade">
+        <i class="bi bi-universal-access"></i>
+    </button>
+
+    <div id="accessibilityOverlay" class="accessibility-overlay"></div>
+
+    <aside id="accessibilityMenu" class="accessibility-menu">
+        <div class="accessibility-menu-header">
+            <h3>Acessibilidade</h3>
+            <button id="accessibilityClose" class="accessibility-close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <h4>Filtros de Daltonismo</h4>
+        <div class="accessibility-options">
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-padrao" name="daltonismo" value="padrao" checked>
+                <label for="filtro-padrao">Modo Padrão</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-protanopia" name="daltonismo" value="protanopia">
+                <label for="filtro-protanopia">Protanopsia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-deuteranopia" name="daltonismo" value="deuteranopia">
+                <label for="filtro-deuteranopia">Deuteranopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-tritanopia" name="daltonismo" value="tritanopia">
+                <label for="filtro-tritanopia">Tritanopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-acromatopsia" name="daltonismo" value="acromatopsia">
+                <label for="filtro-acromatopsia">Acromatopsia</label>
+            </div>
+        </div>
+    </aside>
+
+    <div id="accessibilityToast" class="accessibility-toast"></div>
+
+    <!-- Filtros SVG -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0
+                                                     0.558 0.442 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="deuteranopia-filter">
+                <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                                     0.7 0.3 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                     0 1 0 0 0
+                                                     0 0 0.567 0.433 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="acromatopsia-filter">
+                <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+
+    <!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Configuração do projeto -->
+<script src="../js/supabase.js"></script>   <!-- ajuste o caminho se necessário -->
+
+<!-- Seus outros scripts -->
+<script src="../js/login.js"></script>
+    <script src="../js/regioes.js"></script>
+    <script src="../js/noturno.js"></script>
+    <script src="../js/acessibilidade.js"></script>
+    <script src="../js/idioma.js"></script>
+    <script src="../js/api.js"></script>
+
+    <script>
+    async function carregarRegioes() {
+        const lista = document.getElementById('cidadesList');
+        const regioes = await buscarRegioes();
+
+        if (!regioes.length) {
+            lista.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhuma região cadastrada.</p>';
+            return;
+        }
+
+        lista.innerHTML = regioes.map(r => `
+            <div class="cidade-item" data-name="${r.nome.toLowerCase()}">
+                <div class="cidade-info">
+                    <div class="cidade-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div>
+                        <h3>${r.nome}</h3>
+                        <p class="cidade-status">
+                            <span class="status-dot"></span> Em operação
+                        </p>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', carregarRegioes);
+</script>
+
+    <!-- Código de integração do VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+
+</html>

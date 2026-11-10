@@ -1,0 +1,1288 @@
+/* =================================================================
+   LOGIN ADM - VOYAGE
+   DESIGN PREMIUM COM FUNDO ANIMADO + PAINEL LATERAL
+   ================================================================= */
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0F2C59 0%, #00C9A7 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    color: #333;
+    padding-top: 90px;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* =================================================================
+   FUNDO ANIMADO (BLOBS)
+   ================================================================= */
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+    animation: blobFloat 18s ease-in-out infinite;
+}
+
+.blob-1 {
+    width: 500px;
+    height: 500px;
+    background: #00C9A7;
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: #4dd0e1;
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 4s;
+}
+
+.blob-3 {
+    width: 350px;
+    height: 350px;
+    background: #0F2C59;
+    top: 40%;
+    left: 50%;
+    animation-delay: 8s;
+}
+
+.blob-4 {
+    width: 300px;
+    height: 300px;
+    background: #00e5b0;
+    bottom: 20%;
+    left: 10%;
+    animation-delay: 12s;
+}
+
+@keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(60px, -50px) scale(1.1); }
+    66% { transform: translate(-40px, 60px) scale(0.9); }
+}
+
+/* =================================================================
+   CONTAINER PRINCIPAL (PAINEL + CARD)
+   ================================================================= */
+
+.login-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;                     /* 🔥 ESPAÇO GRANDE ENTRE PAINEL E CARD */
+    padding: 20px;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+/* =================================================================
+   ÁREA RESERVADA PARA OS CARDS
+   ================================================================= */
+
+.card-area {
+    position: relative;
+    width: 460px;
+    height: 620px;
+    flex-shrink: 0;
+}
+
+/* =================================================================
+   PAINEL LATERAL ESQUERDO (DECORATIVO)
+   ================================================================= */
+
+.side-panel {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+    height: 640px;
+    padding: 2.5rem 2rem;
+    border-radius: 28px;
+    background: rgba(15, 44, 89, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+    flex-shrink: 0;
+}
+
+/* Topo: marca */
+.side-panel-top {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.side-panel-top .side-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 201, 167, 0.5));
+}
+
+.side-panel-top .side-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Meio: mensagem */
+.side-panel-middle h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #00C9A7, #4dd0e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.side-panel-middle p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Rodapé: indicadores */
+.side-panel-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.side-panel-bottom .side-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.side-panel-bottom .side-info i {
+    color: #00C9A7;
+    font-size: 1rem;
+}
+
+/* Mostra o painel apenas em telas grandes */
+@media (min-width: 1000px) {
+    .side-panel {
+        display: flex;
+    }
+}
+
+/* =================================================================
+   CARD (LOGIN E REGISTRO) - EMPILHADOS
+   ================================================================= */
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 640px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 2.5rem 2.5rem;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    filter: blur(20px);
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+/* Scrollbar personalizada do card */
+.card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: rgba(0, 201, 167, 0.3);
+    border-radius: 10px;
+}
+
+.card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Estado visível */
+.card.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    pointer-events: auto;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* Estado escondido */
+.card.hidden {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.9);
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 1;
+}
+
+/* =================================================================
+   HEADER DO CARD
+   ================================================================= */
+
+.card-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00C9A7 0%, #0F2C59 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.8rem;
+    font-size: 2rem;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 201, 167, 0.4);
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(0, 201, 167, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 12px 35px rgba(0, 201, 167, 0.6);
+    }
+}
+
+.card-header h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #0F2C59;
+    letter-spacing: 2px;
+    margin-bottom: 0.4rem;
+}
+
+.card-header p {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* =================================================================
+   FORMULÁRIO
+   ================================================================= */
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+}
+
+.form-group i {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00C9A7;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.95rem 1rem 0.95rem 3.2rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 0.92rem;
+    color: #333;
+    background: #fafafa;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.form-group input:hover {
+    border-color: #d0d0d0;
+    background: #ffffff;
+}
+
+.form-group input:focus {
+    border-color: #00C9A7;
+    box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.12);
+    background: #ffffff;
+}
+
+.form-group input:focus + i,
+.form-group:focus-within i {
+    color: #00a88b;
+}
+
+/* =================================================================
+   OPÇÕES (LEMBRAR / ESQUECI SENHA)
+   ================================================================= */
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    margin: 0.2rem 0 0.4rem;
+}
+
+.form-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-options input[type="checkbox"] {
+    accent-color: #00C9A7;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.form-options a {
+    color: #0F2C59;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.form-options a:hover {
+    color: #00C9A7;
+}
+
+/* =================================================================
+   BOTÃO PRINCIPAL
+   ================================================================= */
+
+.btn-primary {
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #00C9A7 0%, #0F2C59 100%);
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 201, 167, 0.35);
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 201, 167, 0.5);
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =================================================================
+   LINK DE TROCA (LOGIN <-> REGISTRO)
+   ================================================================= */
+
+.switch-text {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+.switch-text a {
+    color: #00C9A7;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.switch-text a:hover {
+    color: #0F2C59;
+    text-decoration: underline;
+}
+
+/* =================================================================
+   ESTADOS DE ERRO
+   ================================================================= */
+
+.form-group input.input-error {
+    border-color: #e74c3c;
+    background: #fff5f5;
+    animation: shake 0.4s ease;
+}
+
+.form-group:has(.input-error) i {
+    color: #e74c3c;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* =================================================================
+   TOAST
+   ================================================================= */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #0F2C59;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    z-index: 9999;
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+}
+
+.toast.error {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.toast.info {
+    background: linear-gradient(135deg, #0F2C59, #00C9A7);
+}
+
+/* =================================================================
+   HEADER PERSONALIZADO (PÁGINA LOGIN)
+   ================================================================= */
+
+.header-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: rgba(15, 44, 89, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.header-brand .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 201, 167, 0.4));
+}
+
+.header-brand .brand-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.3rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background: rgba(0, 201, 167, 0.25);
+    border-color: #00C9A7;
+    transform: translateX(-3px);
+}
+
+.btn-voltar i {
+    font-size: 1rem;
+}
+
+/* Navegação */
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.8rem;
+}
+
+.header-nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00C9A7;
+    transition: width 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #00C9A7;
+}
+
+.header-nav a:hover::after {
+    width: 100%;
+}
+
+/* Ações do header */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-install-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3);
+}
+
+.btn-install-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 201, 167, 0.5);
+}
+
+/* Botão modo noturno */
+.header-login .dark-mode-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.header-login .dark-mode-toggle:hover {
+    background: rgba(0, 201, 167, 0.25);
+    transform: scale(1.1);
+}
+
+/* Seletor de idioma */
+.header-login .language-selector {
+    position: relative;
+}
+
+.header-login .language-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-login .language-toggle:hover {
+    background: rgba(0, 201, 167, 0.25);
+}
+
+.header-login .language-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 160px;
+    z-index: 200;
+}
+
+.header-login .language-menu.open {
+    display: flex;
+}
+
+.header-login .language-menu button {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #333;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.header-login .language-menu button:hover {
+    background: #E0F2F1;
+    color: #00C9A7;
+}
+
+/* =================================================================
+   TOASTS PERSONALIZADOS (LOGIN)
+   ================================================================= */
+
+.language-toast,
+.accessibility-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #0F2C59;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.language-toast.show,
+.accessibility-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =================================================================
+   RESPONSIVIDADE
+   ================================================================= */
+
+@media (max-width: 1024px) {
+    .login-wrapper {
+        gap: 40px;
+    }
+
+    .side-panel {
+        width: 300px;
+        height: 580px;
+    }
+
+    .card-area {
+        width: 440px;
+        height: 580px;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        padding-top: 80px;
+        padding-bottom: 30px;
+    }
+
+    .header-login {
+        padding: 0.8rem 1.2rem;
+        gap: 1rem;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .header-brand .brand-name {
+        font-size: 1.1rem;
+    }
+
+    .btn-install-header span {
+        display: none;
+    }
+
+    .btn-install-header {
+        padding: 0.6rem;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .login-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        min-height: auto;
+        padding: 10px;
+    }
+
+    .side-panel {
+        display: none;
+    }
+
+    .card-area {
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        min-height: 620px;
+    }
+
+    .card {
+        position: relative;
+        height: auto;
+        min-height: 620px;
+        max-height: none;
+    }
+
+    .card.hidden {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding-top: 70px;
+        padding-bottom: 20px;
+    }
+
+    .header-login {
+        padding: 0.6rem 1rem;
+    }
+
+    .btn-voltar span {
+        display: none;
+    }
+
+    .btn-voltar {
+        padding: 0.6rem 0.8rem;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .header-brand .brand-name {
+        font-size: 1rem;
+    }
+
+    .header-brand .logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .card {
+        padding: 2.5rem 1.5rem;
+        border-radius: 24px;
+        min-height: auto;
+    }
+
+    .card-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .card-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+    }
+
+    .form-group input {
+        padding: 0.9rem 1rem 0.9rem 3rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        padding: 0.95rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .blob-1, .blob-2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .blob-3, .blob-4 {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* =================================================================
+   ACESSIBILIDADE
+   ================================================================= */
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+    outline: 2px solid #00C9A7;
+    outline-offset: 3px;
+}
+
+::selection {
+    background: #00C9A7;
+    color: #ffffff;
+}
+
+/* =================================================================
+   MODO NOTURNO - PÁGINA DE LOGIN
+   ================================================================= */
+
+/* ===== FUNDO (BLOBS ESCUROS) ===== */
+body.dark-mode {
+    background: linear-gradient(135deg, #08152a 0%, #0a1f3d 100%);
+}
+
+body.dark-mode .blob-1 {
+    background: #0F2C59;
+    opacity: 0.7;
+}
+
+body.dark-mode .blob-2 {
+    background: #00C9A7;
+    opacity: 0.25;
+}
+
+body.dark-mode .blob-3 {
+    background: #08152a;
+    opacity: 0.8;
+}
+
+body.dark-mode .blob-4 {
+    background: #00a88b;
+    opacity: 0.2;
+}
+
+/* ===== HEADER ===== */
+body.dark-mode .header-login {
+    background: rgba(8, 21, 42, 0.65);
+    border-bottom: 1px solid rgba(0, 201, 167, 0.15);
+}
+
+body.dark-mode .header-brand .brand-name {
+    color: #ffffff;
+}
+
+body.dark-mode .header-nav a {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+body.dark-mode .header-nav a:hover {
+    color: #00C9A7;
+}
+
+body.dark-mode .btn-voltar {
+    background: rgba(0, 201, 167, 0.1);
+    border-color: rgba(0, 201, 167, 0.3);
+    color: #00C9A7;
+}
+
+body.dark-mode .btn-voltar:hover {
+    background: rgba(0, 201, 167, 0.25);
+    color: #ffffff;
+}
+
+body.dark-mode .btn-install-header {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: rgba(0, 201, 167, 0.15);
+    border-color: rgba(0, 201, 167, 0.3);
+    color: #00C9A7;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background: rgba(0, 201, 167, 0.3);
+}
+
+body.dark-mode .language-toggle {
+    background: rgba(0, 201, 167, 0.15);
+    border-color: rgba(0, 201, 167, 0.3);
+    color: #00C9A7;
+}
+
+body.dark-mode .language-toggle:hover {
+    background: rgba(0, 201, 167, 0.3);
+}
+
+body.dark-mode .language-menu {
+    background: #0f1f26;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .language-menu button {
+    color: #e0e0e0;
+}
+
+body.dark-mode .language-menu button:hover {
+    background: rgba(0, 201, 167, 0.15);
+    color: #00C9A7;
+}
+
+/* ===== PAINEL LATERAL ===== */
+body.dark-mode .side-panel {
+    background: rgba(8, 21, 42, 0.7);
+    border: 1px solid rgba(0, 201, 167, 0.15);
+}
+
+body.dark-mode .side-panel-middle h2 {
+    background: linear-gradient(135deg, #00C9A7, #4dd0e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.dark-mode .side-panel-middle p {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+body.dark-mode .side-panel-bottom .side-info {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== CARD (LOGIN E REGISTRO) ===== */
+body.dark-mode .card {
+    background: rgba(15, 31, 38, 0.95);
+    border: 1px solid rgba(0, 201, 167, 0.15);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(0, 201, 167, 0.1);
+}
+
+body.dark-mode .card-header h1 {
+    color: #00C9A7;
+}
+
+body.dark-mode .card-header p {
+    color: #b0b0b0;
+}
+
+body.dark-mode .card-icon {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 8px 25px rgba(0, 201, 167, 0.5);
+}
+
+/* ===== INPUTS ===== */
+body.dark-mode .form-group input {
+    background: rgba(8, 21, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input::placeholder {
+    color: #888;
+}
+
+body.dark-mode .form-group input:hover {
+    border-color: rgba(0, 201, 167, 0.3);
+    background: rgba(8, 21, 42, 0.8);
+}
+
+body.dark-mode .form-group input:focus {
+    border-color: #00C9A7;
+    background: rgba(8, 21, 42, 0.9);
+    box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.15);
+}
+
+body.dark-mode .form-group i {
+    color: #00C9A7;
+}
+
+/* ===== OPÇÕES (LEMBRAR / ESQUECI SENHA) ===== */
+body.dark-mode .form-options label {
+    color: #b0b0b0;
+}
+
+body.dark-mode .form-options a {
+    color: #00C9A7;
+}
+
+body.dark-mode .form-options a:hover {
+    color: #ffffff;
+}
+
+/* ===== BOTÃO PRINCIPAL ===== */
+body.dark-mode .btn-primary {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+    box-shadow: 0 6px 20px rgba(0, 201, 167, 0.25);
+}
+
+body.dark-mode .btn-primary:hover {
+    box-shadow: 0 12px 30px rgba(0, 201, 167, 0.5);
+}
+
+/* ===== LINK DE TROCA ===== */
+body.dark-mode .switch-text {
+    color: #b0b0b0;
+}
+
+body.dark-mode .switch-text a {
+    color: #00C9A7;
+}
+
+body.dark-mode .switch-text a:hover {
+    color: #ffffff;
+}
+
+/* ===== INPUTS COM ERRO ===== */
+body.dark-mode .form-group input.input-error {
+    border-color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+/* ===== MENU DE ACESSIBILIDADE ===== */
+body.dark-mode .accessibility-menu {
+    background: #0f1f26;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .accessibility-menu-header h3 {
+    color: #00C9A7;
+}
+
+body.dark-mode .accessibility-close {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e0e0e0;
+}
+
+body.dark-mode .accessibility-close:hover {
+    background: #e74c3c;
+    color: #ffffff;
+}
+
+body.dark-mode .accessibility-menu h4 {
+    color: #b0b0b0;
+}
+
+body.dark-mode .accessibility-option {
+    border-color: transparent;
+}
+
+body.dark-mode .accessibility-option:hover {
+    background: rgba(0, 201, 167, 0.08);
+    border-color: rgba(0, 201, 167, 0.2);
+}
+
+body.dark-mode .accessibility-option label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .accessibility-menu-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== TOASTS ===== */
+body.dark-mode .toast,
+body.dark-mode .language-toast,
+body.dark-mode .accessibility-toast {
+    background: #08152a;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .toast.success {
+    background: linear-gradient(135deg, #00C9A7, #0F2C59);
+}
+
+body.dark-mode .toast.error {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+body.dark-mode .toast.info {
+    background: linear-gradient(135deg, #0F2C59, #00C9A7);
+}
+
+/* ===== FILTROS DE DALTONISMO ===== */
+body.dark-mode .accessibility-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* ===== BOTÃO MOSTRAR/OCULTAR SENHA ===== */
+.btn-toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    font-size: 1.15rem;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: color 0.2s;
+}
+
+.btn-toggle-password:hover {
+    color: #00C9A7;
+}
+
+/* Ícone do olho NÃO deve herdar o estilo do cadeado */
+.btn-toggle-password i {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    pointer-events: none;
+    color: inherit;
+    font-size: 1.15rem;
+}
+
+.form-group input.has-toggle {
+    padding-right: 48px !important;
+}

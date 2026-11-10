@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./front-end/css/style.css">
+    <link rel="stylesheet" href="./front-end/css/noturno.css">
+    <link rel="stylesheet" href="./front-end/css/acessibilade.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Voyage</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="brand">
+                <img src="./front-end/img/voyage_logo.svg" data-src-normal="./front-end/img/voyage_logo.svg"
+                    data-src-noturna="./front-end/img/voyage_logo_noturna.svg" alt="Logo Voyage" class="logo">
+                <span class="brand-name">Voyage</span>
+            </div>
+            <!-- Menu de navegação à direita -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="./front-end/pages/parceiros.html" data-i18n="nav_parceiros">Parceiros</a></li>
+                    <li><a href="./front-end/pages/blog.html" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="./front-end/pages/regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                    <li><a href="./front-end/pages/sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                </ul>
+            </nav>
+            <a href="./front-end/pages/app.html" class="btn-install" data-i18n="btn_instalar"><i
+                    class="bi bi-download"></i> Instale o App</a>
+            <button onclick="toggleDarkMode()" class="dark-mode-toggle" aria-label="Alternar modo noturno">
+                <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+            </button>
+            <div class="language-selector">
+                <button id="languageBtn" class="language-toggle" onclick="toggleLanguageMenu()">
+                    <i class="bi bi-globe"></i> <span id="languageLabel">PT</span>
+                </button>
+                <div id="languageMenu" class="language-menu">
+                    <button onclick="setLanguage('pt')">🇧🇷 Português</button>
+                    <button onclick="setLanguage('en')">🇺🇸 English</button>
+                    <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== MAIN / CARROSSEL DE CARDS ===== -->
+        <main class="main-content">
+
+            <!-- Container dos Cards -->
+            <div class="cards-slider" id="cardsSlider">
+
+
+                <div class="card active img-right">
+                    <div class="card-text">
+                        <span class="tag" data-i18n="home_tag">Transporte público mais inteligente</span>
+                        <h1 data-i18n="home_titulo_1">Seu caminho. Sua cidade.<br data-i18n="home_titulo_2">Na palma da
+                            sua mão.</h1>
+                        <p data-i18n="home_desc">Com o Voyage, você acompanha seu ônibus em tempo real, gerencia sua
+                            carteira de transporte e recarrega seu saldo direto pelo celular.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="./front-end/img/p1.jpg" alt="Ônibus inteligente">
+                    </div>
+                </div>
+
+                <div class="card img-right">
+                    <div class="card-text">
+                        <span class="tag" data-i18n="home_tag_2">Chegada na hora certa</span>
+                        <h1 data-i18n="home_titulo_3">Rastreamento ao vivo<br data-i18n="home_titulo_4">do seu ônibus.
+                        </h1>
+                        <p data-i18n="home_desc_2">Saiba exatamente onde está o seu transporte, quantos minutos faltam
+                            para chegar e evite filas desnecessárias nos pontos.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="./front-end/img/p2.jpg" alt="Rastreamento GPS">
+                    </div>
+                </div>
+
+                <div class="card img-right">
+                    <div class="card-text">
+                        <span class="tag" data-i18n="home_tag_3">SEM FILAS, SEM PAPEL</span>
+                        <h1 data-i18n="home_titulo_5">Recarregue seu saldo<br data-i18n="home_titulo_6">pelo celular.
+                        </h1>
+                        <p data-i18n="home_desc_3">Gerencie sua carteira de transporte digital, veja seu histórico de
+                            viagens e recarregue o crédito com apenas um clique.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="./front-end/img/p3.jpg" alt="Recarga digital">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Indicadores / Bolinhas de navegação -->
+            <div class="slider-indicators">
+                <button class="dot active" data-index="0"></button>
+                <button class="dot" data-index="1"></button>
+                <button class="dot" data-index="2"></button>
+            </div>
+
+            <!-- Setas laterais personalizadas (DENTRO do slider) -->
+            <button class="arrow arrow-left" id="prevCard" aria-label="Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <button class="arrow arrow-right" id="nextCard" aria-label="Próximo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+        </main>
+
+        <!-- ===== SEÇÃO REGIÕES ===== -->
+        <section class="regions-section">
+            <div class="regions-container">
+
+                <div class="regions-text">
+                    <span class="regions-tag" data-i18n="regioes_tag">Nossas rotas</span>
+<h2>
+    <span data-i18n="regioes_titulo_1">Conectando cidades.</span>
+    <br>
+    <span data-i18n="regioes_titulo_2">Transformando</span>
+    <span id="changing-city" class="highlight-city">Matão</span>.
+</h2>
+                    <p data-i18n="regioes_desc">O Voyage está presente nas principais cidades da região, levando
+                        mobilidade inteligente e tecnologia para o seu dia a dia.</p>
+
+                    <a href="./front-end/pages/regioes.html" class="btn-regions" data-i18n="regioes_btn">
+                        <span>Ver Regiões</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
+<div class="regions-images">
+    <!-- Imagem de Matão -->
+    <img src="./front-end/img/matao.jpg" 
+         alt="Cidade de Matão" 
+         class="city-image active" 
+         data-city="Matão"
+         data-credit="Orlando Figueiredo Neto"
+         data-credit-link="https://www.google.com/search?q=Orlando+Figueiredo+Neto">
+         
+    <!-- Imagem de Taquaritinga -->
+    <img src="./front-end/img/taquaritinga.png" 
+         alt="Cidade de Taquaritinga" 
+         class="city-image" 
+         data-city="Taquaritinga"
+         data-credit="Gustavo Del Vechio"
+         data-credit-link="https://gustavodelvechio.com.br">
+         
+    <!-- Crédito dinâmico -->
+    <p class="credit-text" id="creditText">
+        Foto: <a href="https://www.google.com/search?q=Orlando+Figueiredo+Neto" target="_blank" rel="noopener noreferrer" id="creditLink">Orlando Figueiredo Neto</a>
+    </p>
+</div>
+
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO VISÃO ===== -->
+        <section class="vision-section">
+            <div class="vision-container">
+
+                <div class="vision-text">
+                    <h3 class="vision-tag" data-i18n="visao_tag">Nossa Visão</h3>
+                    <h2 data-i18n="visao_titulo">Mobilidade inteligente<br>para todos.</h2>
+
+                    <p data-i18n="visao_desc_1">Transformar a forma como as pessoas se movimentam pela cidade,
+                        tornando o transporte público mais inteligente, acessível e conectado.</p>
+                    <p data-i18n="visao_desc_2">Queremos que cada pessoa tenha mais controle sobre sua jornada,
+                        sabendo onde está seu ônibus, quanto possui em sua carteira e
+                        podendo gerenciar suas viagens de forma simples, diretamente pelo celular.</p>
+                    <p class="vision-highlight" data-i18n="visao_desc_3">O Voyage busca aproximar tecnologia e
+                        mobilidade para construir
+                        cidades onde se deslocar seja mais fácil, rápido e tranquilo.</p>
+                </div>
+
+                <div class="vision-image">
+                    <img src="./front-end/img/visao.jpg" alt="Visão de mobilidade inteligente Voyage">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== SEÇÃO BLOG ===== -->
+        <section class="blog-section">
+            <div class="blog-container">
+
+                <div class="blog-content">
+                    <span class="blog-tag" data-i18n="blog_tag">Voyage News</span>
+                    <h2 data-i18n="blog_titulo">A informação move mais<br>que as estradas.</h2>
+                    <p data-i18n="blog_desc">
+                        No blog da Voyage, compartilhamos ideias, tendências e histórias
+                        sobre mobilidade urbana, tecnologia e o futuro das cidades.
+                        Porque entender o mundo ao nosso redor é o primeiro passo para
+                        transformá-lo.
+                    </p>
+                    <a href="./front-end/pages/blog.html" class="btn-blog" data-i18n="blog_btn">
+                        <span>Acessar o Blog</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== RODAPÉ ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-i18n="footer_bemvindo">Bem-vindo</h3>
+                    <ul>
+                        <li><a href="./front-end/pages/regioes.html" data-i18n="nav_regioes">Regiões</a></li>
+                        <li><a href="./front-end/pages/blog.html" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="./front-end/pages/sobre_nos.html" data-i18n="nav_sobre">Sobre Nós</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-i18n="footer_sobre">Sobre Nós</h3>
+                    <ul>
+                        <li><a href="./front-end/pages/sobre_nos.html#equipe" data-i18n="footer_equipe">Equipe</a></li>
+                        <li><a href="./front-end/pages/sobre_nos.html" data-i18n="nav_sobre">Sobre Voyage</a></li>
+                        <li><a href="./front-end/pages/sobre_nos.html#privacidade"
+                                data-i18n="footer_privacidade">Privacidade</a></li>
+                        <li><a href="./front-end/pages/sobre_nos.html#termos" data-i18n="footer_termos">Termos de
+                                Uso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h3 data-i18n="footer_contato">Contato</h3>
+                    <a href="mailto:info.voyage.app@gmail.com" class="footer-email" data-i18n="footer_email">
+                        <i class="bi bi-envelope-fill"></i> info.voyage.app@gmail.com
+                    </a>
+
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    <!-- Botão de Login ADM -->
+                    <a href="./front-end/pages/login.html" class="admin-login-link" title="Área Administrativa">
+                        <i class="bi-box-arrow-in-right"></i> 
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_direitos">&copy; 2026 Voyage. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="languageToast" class="language-toast"></div>
+
+    <!-- Filtros de Daltonismo (SVG) -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="protanopia-filter">
+                <feColorMatrix type="matrix" values="0.567 0.433 0 0 0
+                                                     0.558 0.442 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="deuteranopia-filter">
+                <feColorMatrix type="matrix" values="0.625 0.375 0 0 0
+                                                     0.7 0.3 0 0 0
+                                                     0 0 1 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="tritanopia-filter">
+                <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                     0 1 0 0 0
+                                                     0 0 0.567 0.433 0
+                                                     0 0 0 1 0" />
+            </filter>
+            <filter id="acromatopsia-filter">
+                <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0.2126 0.7152 0.0722 0 0
+                                                     0 0 0 1 0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- ===== MODO DE ACESSIBILIDADE ===== -->
+    <button id="accessibilityToggle" class="accessibility-toggle" aria-label="Acessibilidade">
+        <i class="bi bi-universal-access"></i>
+    </button>
+
+    <div id="accessibilityOverlay" class="accessibility-overlay"></div>
+
+    <aside id="accessibilityMenu" class="accessibility-menu">
+        <div class="accessibility-menu-header">
+            <h3>Acessibilidade</h3>
+            <button id="accessibilityClose" class="accessibility-close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <h4>Filtros de Daltonismo</h4>
+        <div class="accessibility-options">
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-padrao" name="daltonismo" value="padrao" checked>
+                <label for="filtro-padrao">Modo Padrão</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-protanopia" name="daltonismo" value="protanopia">
+                <label for="filtro-protanopia">Protanopsia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-deuteranopia" name="daltonismo" value="deuteranopia">
+                <label for="filtro-deuteranopia">Deuteranopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-tritanopia" name="daltonismo" value="tritanopia">
+                <label for="filtro-tritanopia">Tritanopia</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="radio" id="filtro-acromatopsia" name="daltonismo" value="acromatopsia">
+                <label for="filtro-acromatopsia">Acromatopsia</label>
+            </div>
+        </div>
+    </aside>
+
+    <div id="accessibilityToast" class="accessibility-toast"></div>
+
+    <script src="./front-end/js/script.js"></script>
+    <script src="./front-end/js/noturno.js"></script>
+    <script src="./front-end/js/acessibilidade.js"></script>
+    <script src="./front-end/js/idioma.js"></script>
+    <!-- Código de integração do VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+
+</html>
